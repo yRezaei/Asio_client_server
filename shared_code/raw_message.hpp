@@ -59,9 +59,7 @@ class RawMessage : std::enable_shared_from_this<RawMessage>
 
     bool decode_header()
     {
-        char header[header_length + 1] = "";
-        std::strncat(header, data_, header_length);
-        body_length_ = std::atoi(header);
+        std::copy((const char*)data_, (const char*)data_ + 4, (char*)&body_length_);
         if (body_length_ > max_body_length)
         {
             body_length_ = 0;
@@ -72,9 +70,8 @@ class RawMessage : std::enable_shared_from_this<RawMessage>
 
     void encode_header()
     {
-        char header[header_length + 1] = "";
-        std::sprintf(header, "%4d", static_cast<int>(body_length_));
-        std::memcpy(data_, header, header_length);
+        auto size = static_cast<int>(body_length_);
+        std::copy((const char*)&size, (const char*)(&size) + header_length, data_);
     }
 
   private:

@@ -4,13 +4,14 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/include",
-                "C:\\Users\\yar\\.conan\\data\\asio\\1.13.0\\bincrafters\\stable\\package\\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\\include"
+                "${workspaceFolder}/shared_code",
+                "C:\\Users\\${env:USERNAME}\\.conan\\data\\asio\\1.13.0\\bincrafters\\stable\\package\\5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9\\include"
             ],
             "windowsSdkVersion": "10.0.17763.0",
             "cStandard": "c11",
             "cppStandard": "c++17",
-            "intelliSenseMode": "msvc-x64"
+            "intelliSenseMode": "msvc-x64",
+            "configurationProvider": "go2sh.cmake-integration"
         }
     ],
     "version": 4
